@@ -29,7 +29,7 @@
     </style>
 </head>
 <body>
-    <h1>Confirmar exclusão de <?php echo $cont->getDescricao(); ?></h1>
+    <h1>Confirmar exclusão de <?php echo $cont->getName(); ?></h1>
 
     <h2><a href="contato.php?fun=excluir&conf=sim&id=<?php echo $cont->getId();?>">Sim</a></h2>
     <h2><a href="contato.php?fun=listar">Não</a></h2>

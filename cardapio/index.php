@@ -196,22 +196,22 @@
                 </div>
 
                 <div class="col-12 container-menu wow fadeInUp">
-                    <a onclick="cardapio.metodos.obterItensCardapio('burgers')" id="menu-burgers" class="btn btn-white btn-sm mr-3 mb-3 active">
+                    <a onclick="" id="menu-burgers" class="btn btn-white btn-sm mr-3 mb-3 active">
                         <i class="fas fa-hamburger"></i>&nbsp; Burgers
                     </a>
-                    <a onclick="cardapio.metodos.obterItensCardapio('pizzas')" id="menu-pizzas" class="btn btn-white btn-sm mr-3 mb-3">
+                    <a onclick="" id="menu-pizzas" class="btn btn-white btn-sm mr-3 mb-3">
                         <i class="fas fa-pizza-slice"></i>&nbsp; Pizzas
                     </a>
-                    <a onclick="cardapio.metodos.obterItensCardapio('churrasco')" id="menu-churrasco" class="btn btn-white btn-sm mr-3 mb-3">
+                    <a onclick="" id="menu-churrasco" class="btn btn-white btn-sm mr-3 mb-3">
                         <i class="fas fa-drumstick-bite"></i>&nbsp; Churrasco
                     </a>
-                    <a onclick="cardapio.metodos.obterItensCardapio('steaks')" id="menu-steaks" class="btn btn-white btn-sm mr-3 mb-3">
+                    <a onclick=")" id="menu-steaks" class="btn btn-white btn-sm mr-3 mb-3">
                         <i class="fas fa-bacon"></i>&nbsp; Steaks
                     </a>
-                    <a onclick="cardapio.metodos.obterItensCardapio('bebidas')" id="menu-bebidas" class="btn btn-white btn-sm mr-3 mb-3">
+                    <a onclick="" id="menu-bebidas" class="btn btn-white btn-sm mr-3 mb-3">
                         <i class="fas fa-cocktail"></i>&nbsp; Bebidas
                     </a>
-                    <a onclick="cardapio.metodos.obterItensCardapio('sobremesas')" id="menu-sobremesas" class="btn btn-white btn-sm mr-3 mb-3">
+                    <a onclick="" id="menu-sobremesas" class="btn btn-white btn-sm mr-3 mb-3">
                         <i class="fas fa-ice-cream"></i>&nbsp; Sobremesas
                     </a>
                 </div>

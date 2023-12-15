@@ -14,7 +14,7 @@
 					$cont = $dao->exibir($_GET["id"]);
 					//unlink($cont->getFoto());
 					$dao->excluir($cont);
-					$status = "O contato " . $cont->getDescricao() . " foi excluído com sucesso";
+					$status = "O contato " . $cont->getName() . " foi excluído com sucesso";
 					
 					$lista = $dao->listar();
 					include_once("visao/listaContato.php");

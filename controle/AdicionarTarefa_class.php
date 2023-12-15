@@ -5,16 +5,17 @@ class AdicionarTarefa {
     public function __construct() {
         if (isset($_POST["enviar"])) {
             $tarefa = new Tarefa(); // Criar um objeto de Tarefa
-			$tarefa->setIma($_POST["img"]); // Atribua valores aos novos campos
+			$tarefa->setImg($_POST["img"]); // Atribua valores aos novos campos
 			$tarefa->setName($_POST["name"]);
 			$tarefa->setDsc($_POST["dsc"]);
 			$tarefa->setPrice($_POST["price"]);
+			$tarefa->setCategoria($_POST["categoria"]);
             // Defina outros campos da tarefa, se necessário
 
             $dao = new TarefaDAO(); // Instancie o DAO de Tarefa
             $dao->adicionar($tarefa); // Adicione a nova tarefa ao banco de dados
 
-            $status = "Cadastro da tarefa '" . $tarefa->getDescricao() . "' efetuado com sucesso";
+            $status = "Cadastro da tarefa '" . $tarefa->getName() . "' efetuado com sucesso";
             // Mensagem de status após a adição da tarefa
 
             // Redirecione ou inclua a visão de listagem de tarefas aqui

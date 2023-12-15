@@ -102,10 +102,12 @@
     <div class="container">
         <div class="cadastro">
             <h1>Cadastro de Tarefa</h1>
-            <form action="contato.php?fun=adicionar" method="POST">
-                <!-- Seus campos de entrada -->
-                <input type="text" id="title" name="title" />
-                <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
+            <form action="contato.php?fun=adicionar" method="POST"> <!-- Arquivo PHP para inserir os dados no banco -->
+                <input type="text" id="img" name="img" placeholder="URL da Imagem" />
+                <input type="text" id="name" name="name" placeholder="Nome da Tarefa" />
+                <textarea id="dsc" name="dsc" rows="4" cols="50" placeholder="Descrição da Tarefa"></textarea>
+                <input type="text" id="price" name="price" placeholder="Preço da Tarefa" />
+                <input type="text" id="categoria" name="categoria" placeholder="Categoria da Tarefa" />
 
                 <input type="submit" name="enviar" value="Enviar" />
             </form>
@@ -122,28 +124,34 @@
 	
 		<table>
 			<tr> 
-				<th>ID</th>
-				<th>Title</th>
-				<th>Descrição</th>
-				<th>Concluída</th>
-				<th>Editar</th>
-				<th>Excluir</th>
+                <th>ID</th>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Price</th>
+                <th>Categoria</th>
+                <th>Editar</th>
+                <th>Excluir</th>
 			</tr>
 			<!-- Primeira linha da tabela com o cabeçalho -->
 			
-			<?php
-			// Assume que o controle passou uma lista de tarefas
-			foreach ($lista as $tarefa) {
-				echo "<tr>"; 
-				echo "<td>" . $tarefa->getId() . "</td>";
-                echo "<td><span>" . ($tarefa->getConcluida() ? '<s>' . $tarefa->getTitle() . '</s>' : $tarefa->getTitle()) . "</span></td>";
-                echo "<td><span>" . ($tarefa->getConcluida() ? '<s>' . $tarefa->getDescricao() . '</s>' : $tarefa->getDescricao()) . "</span></td>";
-				echo "<td>" . ($tarefa->getConcluida() ? 'Sim' : 'Não') . "</td>";
-				echo "<td><a href=contato.php?fun=alterar&id=" . $tarefa->getId() . "><img src='visao/img/update.png' width='30px'/></a></td>"; 
-				echo "<td><a href=contato.php?fun=excluir&id=" . $tarefa->getId() . "><img src='visao/img/delete.png' width='30px' /></a></td>";    
-				echo "</tr>";    
-			}   
-			?>  
+
+            <?php
+            // Supondo que $lista é um array de objetos Tarefa preenchido com os dados
+            foreach ($lista as $tarefa) {
+                echo "<tr>"; 
+                echo "<td>" . $tarefa->getId() . "</td>";
+                echo "<td><img src='" . $tarefa->getImg() . "' width='50px'/></td>";
+                echo "<td>" . $tarefa->getName() . "</td>";
+                echo "<td>" . $tarefa->getDsc() . "</td>";
+                echo "<td>" . $tarefa->getPrice() . "</td>";
+                echo "<td>" . $tarefa->getCategoria() . "</td>";
+                echo "<td><a href='contato.php?fun=alterar&id=" . $tarefa->getId() . "'><img src='visao/img/update.png' width='30px'/> </a></td>"; 
+                echo "<td><a href='contato.php?fun=excluir&id=" . $tarefa->getId() . "'><img src='visao/img/delete.png' width='30px' /> </a></td>";	
+                // Adicione mais colunas conforme necessário
+                echo "</tr>";    
+            }   
+            ?>  
 		</table>
 	</div>
 </body>

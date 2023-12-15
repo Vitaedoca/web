@@ -19,14 +19,15 @@
 		public function adicionar($tarefa) {
 			try {
 				$stmt = $this->con->prepare(
-					"INSERT INTO manu (img, name, dsc, price) 
-            		VALUES (:img, :name, :dsc, :price)");
+					"INSERT INTO menu (img, name, dsc, price, categoria) 
+            		VALUES (:img, :name, :dsc, :price, :categoria)");
 		
 				// Liga os parâmetros aos valores da tarefa
 				$stmt->bindValue(":img", $tarefa->getImg());
 				$stmt->bindValue(":name", $tarefa->getName());
 				$stmt->bindValue(":dsc", $tarefa->getDsc());
 				$stmt->bindValue(":price", $tarefa->getPrice());
+				$stmt->bindValue(":categoria", $tarefa->getCategoria());
 		
 				$stmt->execute(); // Executa o SQL
 		
@@ -41,7 +42,7 @@
 		public function alterar($tarefa) {
 			try {
 				$stmt = $this->con->prepare(
-					"UPDATE menu SET img = :img, name = :name, dsc = :dsc, price = :price WHERE id = :id"
+					"UPDATE menu SET img = :img, name = :name, dsc = :dsc, price = :price, categoria = :categoria WHERE id = :id"
 				);
 		
 				// Liga os parâmetros aos valores da tarefa
@@ -49,6 +50,7 @@
 				$stmt->bindValue(":name", $tarefa->getName());
 				$stmt->bindValue(":dsc", $tarefa->getDsc());
 				$stmt->bindValue(":price", $tarefa->getPrice());
+				$stmt->bindValue(":categoria", $tarefa->getCategoria());
 				$stmt->bindValue(":id", $tarefa->getId());
 		
 				$this->con->beginTransaction();
@@ -90,10 +92,11 @@
 				foreach($dados as $linha){
 					$tarefa = new Tarefa();
 					$tarefa->setId($linha["id"]);
-					$tarefa->setIma($linha["img"]); // Adicione as novas linhas para os campos adicionais
+					$tarefa->setImg($linha["img"]); // Adicione as novas linhas para os campos adicionais
 					$tarefa->setName($linha["name"]);
 					$tarefa->setDsc($linha["dsc"]);
 					$tarefa->setPrice($linha["price"]);
+					$tarefa->setCategoria($linha["categoria"]);
 		
 					$lista[] = $tarefa;
 				}
@@ -118,6 +121,7 @@
 				$tarefa->setName($dado[0]["name"]);
 				$tarefa->setDsc($dado[0]["dsc"]);
 				$tarefa->setPrice($dado[0]["price"]);
+				$tarefa->setCategoria($dado[0]["categoria"]);
 				
 				return $tarefa;	
 			}

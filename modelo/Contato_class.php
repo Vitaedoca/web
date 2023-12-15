@@ -6,6 +6,7 @@ class Tarefa {
 	private $name;
 	private $dsc;
 	private $price;
+	private $categoria;
 
     public function __construct() {
     }
@@ -22,7 +23,7 @@ class Tarefa {
 		return $this->img;
 	}
 
-	public function setIma($img) {
+	public function setImg($img) {
 		$this->img = $img;
 	}
 
@@ -48,6 +49,14 @@ class Tarefa {
 
 	public function setPrice($price) {
 		$this->price = $price;
+	}
+	
+	public function getCategoria() {
+		return $this->categoria;
+	}
+
+	public function setCategoria($categoria) {
+		$this->categoria = $categoria;
 	}
 }
 

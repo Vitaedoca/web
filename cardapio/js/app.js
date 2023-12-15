@@ -22,30 +22,7 @@ cardapio.events = {
 
 }
 $(document).ready(function(){
-    $.ajax({
-        url: 'http://localhost/toDolist', // Substitua 'seu_backend.php' pelo endpoint do seu backend
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            // Manipule os dados recebidos
-            if (data && data.length > 0) {
-                // Itere sobre os dados e faça o que precisar com eles
-                $.each(data, function(index, tarefa) {
-                    console.log(tarefa.id); // Exemplo de acesso aos campos do objeto Tarefa
-                    console.log(tarefa.img);
-                    console.log(tarefa.name);
-                    console.log(tarefa.dsc);
-                    console.log(tarefa.price);
-                    // Faça o que precisar com esses dados
-                });
-            } else {
-                console.log('Nenhum dado encontrado.');
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
-        }
-    });
+
 });
 
 
@@ -55,36 +32,52 @@ cardapio.metodos = {
     // obtem a lista de itens do cardapio
     obterItensCardapio: (categoria = 'burgers', vermais = false) => {
         
-        let filtro = MENU[categoria];
 
         if(!vermais) {
             $("#itensCardapio").html('');
             $("#btnVerMais").removeClass("hidden");
         }
 
-
-        $.each(filtro, (i, e) => {
-
-            // replace = substitui uma string por outra sem mudar a original
+        $.ajax({
+            url: 'http://localhost/toDolist/controle', // Substitua 'seu_backend.php' pelo endpoint do seu backend
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Manipule os dados recebidos
+                if (data && data.length > 0) {
+                    // Itere sobre os dados e faça o que precisar com eles
+                    $.each(data, function(i, e) {
+                        console.log(e.id); // Exemplo de acesso aos campos do objeto Tarefa
+                        console.log(e.img);
+                        console.log(e.name);
+                        console.log(e.dsc);
+                        console.log(e.price);
+                                    // replace = substitui uma string por outra sem mudar a original
             // replace(valorPadrão, substituicao)
-            let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
-            .replace(/\${name}/g, e.name)
-            // toFixed(20) Fixa o número de casas descimais que desejar
-            .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','))
-            .replace(/\${id}/g, e.id)
+                        let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
+                        .replace(/\${name}/g, e.name)
+                        // toFixed(20) Fixa o número de casas descimais que desejar
+                        .replace(/\${price}/g, e.price.toFixed(2).replace('.', ','))
+                        .replace(/\${id}/g, e.id)
 
-            // Botão ver mais foi clicado (12 itens)
-            if(vermais && i >= 8 && i < 12) {
-                $("#itensCardapio").append(temp);
+                        // Botão ver mais foi clicado (12 itens)
+                        if(vermais && i >= 8 && i < 12) {
+                            $("#itensCardapio").append(temp);
+                        }
+
+                        // Paginação incial (8 itens)
+                        if(!vermais && i < 8) {
+                            $("#itensCardapio").append(temp);
+                        }
+                    });
+                } else {
+                    console.log('Nenhum dado encontrado.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
             }
-
-            // Paginação incial (8 itens)
-            if(!vermais && i < 8) {
-                $("#itensCardapio").append(temp);
-            }
-
-
-        })
+        });
 
 
         // remove o ativo

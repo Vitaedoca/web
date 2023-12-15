@@ -64,16 +64,16 @@
                 <label for="img">URL da Imagem:</label>
                 <input type="text" id="img" name="img" value="<?php echo $cont->getImg(); ?>" />
 
-                <label for="name">Nome da Tarefa:</label>
+                <label for="name">Nome do Produto:</label>
                 <input type="text" id="name" name="name" value="<?php echo $cont->getName(); ?>" />
 
-                <label for="dsc">Descrição da Tarefa:</label>
+                <label for="dsc">Descrição do Produto:</label>
                 <textarea id="dsc" name="dsc"><?php echo $cont->getDsc(); ?></textarea>
 
-                <label for="price">Preço da Tarefa:</label>
+                <label for="price">Preço:</label>
                 <input type="text" id="price" name="price" value="<?php echo $cont->getPrice(); ?>" />
 
-                <label for="categoria">Categoria da Tarefa:</label>
+                <label for="categoria">Categoria:</label>
                 <input type="text" id="categoria" name="categoria" value="<?php echo $cont->getCategoria(); ?>" />
 
                 <input type="submit" name="enviar" value="Salvar Alterações" />

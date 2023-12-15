@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Listagem de Tarefas</title>
+    <title>Cadastro de produtos</title>
     <meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="./styles/styles.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,13 +101,13 @@
 	
     <div class="container">
         <div class="cadastro">
-            <h1>Cadastro de Tarefa</h1>
+            <h1>Cadastro de produtos</h1>
             <form action="contato.php?fun=adicionar" method="POST"> <!-- Arquivo PHP para inserir os dados no banco -->
                 <input type="text" id="img" name="img" placeholder="URL da Imagem" />
-                <input type="text" id="name" name="name" placeholder="Nome da Tarefa" />
-                <textarea id="dsc" name="dsc" rows="4" cols="50" placeholder="Descrição da Tarefa"></textarea>
-                <input type="text" id="price" name="price" placeholder="Preço da Tarefa" />
-                <input type="text" id="categoria" name="categoria" placeholder="Categoria da Tarefa" />
+                <input type="text" id="name" name="name" placeholder="Nome do Produto" />
+                <textarea id="dsc" name="dsc" rows="4" cols="50" placeholder="Descrição do produto"></textarea>
+                <input type="text" id="price" name="price" placeholder="Preço" />
+                <input type="text" id="categoria" name="categoria" placeholder="Categoria" />
 
                 <input type="submit" name="enviar" value="Enviar" />
             </form>

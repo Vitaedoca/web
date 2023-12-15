@@ -39,7 +39,7 @@ cardapio.metodos = {
         }
 
         $.ajax({
-            url: 'http://localhost/toDolist/controle', // Substitua 'seu_backend.php' pelo endpoint do seu backend
+            url: 'http://localhost/cadastro/controle', // Substitua 'seu_backend.php' pelo endpoint do seu backend
             type: 'GET',
             dataType: 'json',
             success: function(data) {
